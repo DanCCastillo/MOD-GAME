@@ -18,7 +18,7 @@ export const SearchView: React.FC<SearchViewProps> = ({ mods, onModClick }) => {
 
   return (
     <div className="pt-10 px-4 min-h-screen w-full pb-32">
-       <h1 className="text-2xl font-bold mb-6 px-2 sticky top-0 bg-slate-950 z-20 py-4">Browse Catalog</h1>
+       <h1 className="text-2xl font-bold mb-6 px-2 sticky top-0 bg-slate-950 z-20 py-4">Explorar Catálogo</h1>
        
        <div className="relative mb-6 sticky top-16 z-20">
           <SearchIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
@@ -27,7 +27,7 @@ export const SearchView: React.FC<SearchViewProps> = ({ mods, onModClick }) => {
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search mods, games..."
+            placeholder="Buscar mods, juegos..."
             className="w-full bg-slate-900 border border-slate-800 text-white pl-12 pr-10 py-4 rounded-2xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all shadow-lg"
           />
           {query && (
@@ -48,7 +48,7 @@ export const SearchView: React.FC<SearchViewProps> = ({ mods, onModClick }) => {
          ) : (
            <div className="text-center text-slate-500 mt-20 flex flex-col items-center">
              <SearchIcon className="w-12 h-12 mb-4 opacity-20" />
-             <p>No results found for "{query}"</p>
+             <p>No se encontraron resultados para "{query}"</p>
            </div>
          )}
        </div>

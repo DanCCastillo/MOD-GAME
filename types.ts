@@ -6,13 +6,13 @@ export enum Platform {
 }
 
 export enum Category {
-  PERFORMANCE = 'Performance',
-  GRAPHICS = 'Graphics Overhaul',
-  QOL = 'Quality of Life',
-  CONTENT = 'DLC & Content',
-  CHARACTERS = 'Characters',
+  PERFORMANCE = 'Rendimiento',
+  GRAPHICS = 'Gráficos',
+  QOL = 'Calidad de Vida',
+  CONTENT = 'Contenido & DLC',
+  CHARACTERS = 'Personajes',
   AUDIO = 'Audio',
-  UI = 'User Interface'
+  UI = 'Interfaz'
 }
 
 export interface Dependency {
@@ -41,4 +41,4 @@ export interface Mod {
   dependencies: Dependency[];
 }
 
-export type ViewState = 'HOME' | 'SEARCH' | 'DETAIL' | 'LIBRARY';
+export type ViewState = 'HOME' | 'SEARCH' | 'DETAIL' | 'LIBRARY' | 'PROFILE';

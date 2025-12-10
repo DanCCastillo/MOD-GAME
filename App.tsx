@@ -59,16 +59,16 @@ const App: React.FC = () => {
         return (
           <div className="pt-20 px-6 text-center">
             <Library className="w-16 h-16 mx-auto text-slate-700 mb-4" />
-            <h2 className="text-xl font-bold mb-2">My Library</h2>
-            <p className="text-slate-400">Your downloaded mods will appear here.</p>
+            <h2 className="text-xl font-bold mb-2">Mi Biblioteca</h2>
+            <p className="text-slate-400">Tus mods descargados aparecerán aquí.</p>
           </div>
         );
       case 'PROFILE': // Mapped directly for User icon for now
         return (
           <div className="pt-20 px-6 text-center">
             <User className="w-16 h-16 mx-auto text-slate-700 mb-4" />
-            <h2 className="text-xl font-bold mb-2">User Profile</h2>
-            <p className="text-slate-400">Login functionality coming soon.</p>
+            <h2 className="text-xl font-bold mb-2">Perfil de Usuario</h2>
+            <p className="text-slate-400">Funcionalidad de inicio de sesión próximamente.</p>
           </div>
         );
       default:
@@ -84,7 +84,7 @@ const App: React.FC = () => {
         className={`flex flex-col items-center gap-1 active:scale-95 transition-transform ${currentView === 'HOME' && !selectedModId ? 'text-purple-400' : 'text-slate-500'}`}
       >
         <Home className="w-6 h-6" />
-        <span className="text-[10px] font-medium">Home</span>
+        <span className="text-[10px] font-medium">Inicio</span>
       </button>
 
       <button 
@@ -92,7 +92,7 @@ const App: React.FC = () => {
         className={`flex flex-col items-center gap-1 active:scale-95 transition-transform ${currentView === 'SEARCH' ? 'text-purple-400' : 'text-slate-500'}`}
       >
         <Search className="w-6 h-6" />
-        <span className="text-[10px] font-medium">Browse</span>
+        <span className="text-[10px] font-medium">Explorar</span>
       </button>
 
       {/* Main Action Button */}
@@ -111,7 +111,7 @@ const App: React.FC = () => {
         className={`flex flex-col items-center gap-1 active:scale-95 transition-transform ${currentView === 'LIBRARY' ? 'text-purple-400' : 'text-slate-500'}`}
       >
         <Library className="w-6 h-6" />
-        <span className="text-[10px] font-medium">My Mods</span>
+        <span className="text-[10px] font-medium">Mis Mods</span>
       </button>
 
       <button 
@@ -119,7 +119,7 @@ const App: React.FC = () => {
         className={`flex flex-col items-center gap-1 active:scale-95 transition-transform ${currentView === 'PROFILE' ? 'text-purple-400' : 'text-slate-500'}`}
       >
         <User className="w-6 h-6" />
-        <span className="text-[10px] font-medium">Profile</span>
+        <span className="text-[10px] font-medium">Perfil</span>
       </button>
     </div>
   );

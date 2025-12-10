@@ -9,13 +9,13 @@ interface HomeViewProps {
 }
 
 export const HomeView: React.FC<HomeViewProps> = ({ mods, onModClick }) => {
-  const [selectedPlatform, setSelectedPlatform] = useState<string>('All');
-  const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  const [selectedPlatform, setSelectedPlatform] = useState<string>('Todos');
+  const [selectedCategory, setSelectedCategory] = useState<string>('Todas');
 
   // Filter Logic
   const filteredMods = mods.filter(mod => {
-    const matchPlatform = selectedPlatform === 'All' || mod.platforms.includes(selectedPlatform as Platform);
-    const matchCategory = selectedCategory === 'All' || mod.category === selectedCategory;
+    const matchPlatform = selectedPlatform === 'Todos' || mod.platforms.includes(selectedPlatform as Platform);
+    const matchCategory = selectedCategory === 'Todas' || mod.category === selectedCategory;
     return matchPlatform && matchCategory;
   });
 
@@ -27,7 +27,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ mods, onModClick }) => {
           <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
             ModGame
           </h1>
-          <p className="text-slate-400 text-xs">Welcome back, Nomad</p>
+          <p className="text-slate-400 text-xs">Bienvenido, Nómada</p>
         </div>
         <div className="p-2 bg-slate-800 rounded-full relative cursor-pointer active:scale-95 transition-transform">
           <Bell className="w-5 h-5 text-slate-300" />
@@ -38,8 +38,8 @@ export const HomeView: React.FC<HomeViewProps> = ({ mods, onModClick }) => {
       {/* Discovery Hero Section Text */}
       <div className="px-6 my-6">
         <h2 className="text-3xl font-light text-white leading-tight">
-          Discover <span className="font-bold">Next-Gen</span> <br /> 
-          Experiences
+          Descubre <span className="font-bold">Experiencias</span> <br /> 
+          Next-Gen
         </h2>
       </div>
 
@@ -47,17 +47,17 @@ export const HomeView: React.FC<HomeViewProps> = ({ mods, onModClick }) => {
       <div className="px-6 mb-6">
         <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 flex items-center gap-3 text-slate-400 shadow-inner">
           <Filter className="w-5 h-5" />
-          <span className="text-sm">Search games, mods, authors...</span>
+          <span className="text-sm">Buscar juegos, mods, autores...</span>
         </div>
       </div>
 
       {/* Filters Scroll */}
       <div className="pl-6 mb-6 overflow-x-auto no-scrollbar flex gap-3 pb-2 w-full pr-6">
         <button 
-          onClick={() => setSelectedPlatform('All')}
-          className={`px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all active:scale-95 ${selectedPlatform === 'All' ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-900/40' : 'bg-slate-900 text-slate-400 border border-slate-800'}`}
+          onClick={() => setSelectedPlatform('Todos')}
+          className={`px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all active:scale-95 ${selectedPlatform === 'Todos' ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-900/40' : 'bg-slate-900 text-slate-400 border border-slate-800'}`}
         >
-          All
+          Todos
         </button>
         {Object.values(Platform).map(p => (
           <button 
@@ -73,7 +73,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ mods, onModClick }) => {
       {/* Category Dropdown imitation */}
       <div className="px-6 mb-4 flex justify-between items-center">
         <button className="flex items-center gap-2 text-slate-300 text-sm font-medium active:text-white">
-          {selectedCategory === 'All' ? 'All Categories' : selectedCategory}
+          {selectedCategory === 'Todas' ? 'Todas las Categorías' : selectedCategory}
           <ChevronDown className="w-4 h-4" />
         </button>
         <button className="text-pink-500 text-xs font-bold uppercase tracking-wide">
@@ -88,7 +88,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ mods, onModClick }) => {
         ))}
         {filteredMods.length === 0 && (
           <div className="text-center py-20 text-slate-500">
-            No mods found for this filter.
+            No se encontraron mods con este filtro.
           </div>
         )}
       </div>

@@ -29,7 +29,7 @@ export const ModDetailView: React.FC<ModDetailProps> = ({ modId, onBack, userGam
     if (!mod) return;
 
     setDownloadState('COMPATIBILITY_CHECK');
-    setStatusText('Checking Compatibility...');
+    setStatusText('Verificando Compatibilidad...');
     
     // Simulate slight delay for check
     setTimeout(async () => {
@@ -59,14 +59,14 @@ export const ModDetailView: React.FC<ModDetailProps> = ({ modId, onBack, userGam
 
     if (success) {
       setDownloadState('DONE');
-      setStatusText('Installation Ready');
+      setStatusText('Instalación Lista');
     } else {
       setDownloadState('ERROR');
-      setStatusText('Verification Failed');
+      setStatusText('Verificación Fallida');
     }
   };
 
-  if (!mod) return <div className="p-10 text-center animate-pulse">Loading Manifest...</div>;
+  if (!mod) return <div className="p-10 text-center animate-pulse">Cargando Manifiesto...</div>;
 
   return (
     <div className="relative min-h-screen bg-slate-950 pb-24 animate-in fade-in slide-in-from-bottom-4 duration-300">
@@ -94,11 +94,11 @@ export const ModDetailView: React.FC<ModDetailProps> = ({ modId, onBack, userGam
         <div className="flex justify-between items-start mb-2">
            <div>
              <h1 className="text-2xl font-bold text-white leading-tight mb-1">{mod.title}</h1>
-             <p className="text-purple-400 font-medium text-sm">by {mod.author}</p>
+             <p className="text-purple-400 font-medium text-sm">por {mod.author}</p>
            </div>
            {mod.verified && (
              <div className="bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-full text-[10px] font-bold uppercase border border-emerald-500/20 flex items-center gap-1">
-               <ShieldCheck className="w-3 h-3" /> Verified
+               <ShieldCheck className="w-3 h-3" /> Verificado
              </div>
            )}
         </div>
@@ -108,23 +108,23 @@ export const ModDetailView: React.FC<ModDetailProps> = ({ modId, onBack, userGam
           <div className="bg-slate-900 p-3 rounded-xl border border-slate-800 flex flex-col items-center">
              <Activity className="w-4 h-4 text-pink-500 mb-1" />
              <span className="text-sm font-bold text-slate-200">{mod.downloads < 1000000 ? (mod.downloads/1000).toFixed(0) + 'K' : (mod.downloads/1000000).toFixed(1) + 'M'}</span>
-             <span className="text-[10px] text-slate-500 uppercase">Downloads</span>
+             <span className="text-[10px] text-slate-500 uppercase">Descargas</span>
           </div>
           <div className="bg-slate-900 p-3 rounded-xl border border-slate-800 flex flex-col items-center">
              <Layers className="w-4 h-4 text-cyan-500 mb-1" />
              <span className="text-sm font-bold text-slate-200">{mod.size}</span>
-             <span className="text-[10px] text-slate-500 uppercase">Size</span>
+             <span className="text-[10px] text-slate-500 uppercase">Tamaño</span>
           </div>
           <div className="bg-slate-900 p-3 rounded-xl border border-slate-800 flex flex-col items-center">
              <FileCode className="w-4 h-4 text-purple-500 mb-1" />
              <span className="text-sm font-bold text-slate-200">{mod.version}</span>
-             <span className="text-[10px] text-slate-500 uppercase">Version</span>
+             <span className="text-[10px] text-slate-500 uppercase">Versión</span>
           </div>
         </div>
 
         {/* Description */}
         <div className="mb-8">
-          <h3 className="text-sm font-bold text-slate-300 uppercase mb-2 tracking-wide">About this mod</h3>
+          <h3 className="text-sm font-bold text-slate-300 uppercase mb-2 tracking-wide">Sobre este mod</h3>
           <p className="text-slate-400 text-sm leading-relaxed">
             {mod.description}
           </p>
@@ -132,11 +132,11 @@ export const ModDetailView: React.FC<ModDetailProps> = ({ modId, onBack, userGam
 
         {/* Technical Metadata */}
         <div className="mb-24 space-y-3">
-          <h3 className="text-sm font-bold text-slate-300 uppercase mb-2 tracking-wide">Technical Integrity</h3>
+          <h3 className="text-sm font-bold text-slate-300 uppercase mb-2 tracking-wide">Integridad Técnica</h3>
           
           <div className="bg-slate-900/50 rounded-xl p-4 border border-slate-800 space-y-3">
              <div className="flex justify-between items-center text-sm">
-               <span className="text-slate-500">Integrity Hash (SHA-256)</span>
+               <span className="text-slate-500">Hash de Integridad (SHA-256)</span>
                <div className="flex items-center gap-2">
                  <span className="text-xs text-slate-400 font-mono bg-slate-950 px-2 py-1 rounded truncate w-32">{mod.hash}</span>
                  <ShieldCheck className="w-4 h-4 text-emerald-500" />
@@ -146,13 +146,13 @@ export const ModDetailView: React.FC<ModDetailProps> = ({ modId, onBack, userGam
              <div className="w-full h-px bg-slate-800" />
 
              <div className="flex justify-between items-center text-sm">
-               <span className="text-slate-500">Target Game Version</span>
+               <span className="text-slate-500">Versión del Juego</span>
                <span className="text-white font-mono bg-slate-800 px-2 py-1 rounded text-xs">{mod.supportedGameVersion}</span>
              </div>
 
              <div className="flex justify-between items-center text-sm">
-                <span className="text-slate-500">Dependencies</span>
-                <span className="text-purple-400 font-bold text-xs">{mod.dependencies.length} Required</span>
+                <span className="text-slate-500">Dependencias</span>
+                <span className="text-purple-400 font-bold text-xs">{mod.dependencies.length} Requeridas</span>
              </div>
           </div>
         </div>
@@ -166,14 +166,14 @@ export const ModDetailView: React.FC<ModDetailProps> = ({ modId, onBack, userGam
           <div className="mb-4 bg-red-900/20 border border-red-500/30 p-3 rounded-lg flex items-center gap-3 text-red-200 text-sm">
              <AlertTriangle className="w-5 h-5 shrink-0" />
              <div>
-               <p className="font-bold">Compatibility Warning</p>
+               <p className="font-bold">Advertencia de Compatibilidad</p>
                <p className="text-xs opacity-80">{compatibility.message}</p>
              </div>
              <button 
                onClick={startSecureDownload}
                className="ml-auto text-xs underline font-bold"
              >
-               Force
+               Forzar
              </button>
           </div>
         )}
@@ -191,7 +191,7 @@ export const ModDetailView: React.FC<ModDetailProps> = ({ modId, onBack, userGam
           {downloadState === 'IDLE' && (
              <>
                <Download className="w-5 h-5" />
-               Download Securely
+               Descarga Segura
              </>
           )}
 
@@ -206,13 +206,13 @@ export const ModDetailView: React.FC<ModDetailProps> = ({ modId, onBack, userGam
           )}
 
           {downloadState === 'COMPATIBILITY_CHECK' && (
-            <div className="animate-pulse">Checking Compatibility...</div>
+            <div className="animate-pulse">Verificando Compatibilidad...</div>
           )}
 
           {downloadState === 'DONE' && (
             <>
               <CheckCircle2 className="w-5 h-5" />
-              Installed
+              Instalado
             </>
           )}
         </button>
